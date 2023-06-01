@@ -7,7 +7,7 @@ async function run() {
 
     const octokit = github.getOctokit(token);
 
-    const {data: workflowRuns} = await octokit.rest.actions.listWorkflowRunsForRepo({
+    const {data: {workflow_runs: workflowRuns}} = await octokit.rest.actions.listWorkflowRunsForRepo({
         owner: 'rhorm',
         repo: 'javascript-action'
     });
