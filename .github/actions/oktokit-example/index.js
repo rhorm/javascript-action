@@ -13,8 +13,8 @@ async function run() {
     });
 
     console.log(workflowRuns)
-    const {conclusion} = workflowRuns.find(workflowRun => workflowRun.name.includes(workflowName));
-    core.setOutput('conclusion', "success");
+    const {conclusion} = workflowRuns.find(workflowRun => workflowRun.status.includes('complete'));
+    core.setOutput('conclusion', conclusion);
 }
 
 run();
