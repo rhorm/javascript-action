@@ -9,7 +9,7 @@ async function run() {
 
     const {data: workflowRuns} = await octokit.rest.actions.listWorkflowRunsForRepo({
         owner: 'rhorm',
-        repo: 'javascript-actions'
+        repo: 'javascript-action'
     });
 
     console.log(workflowRuns)
