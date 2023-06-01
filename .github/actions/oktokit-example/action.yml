@@ -2,7 +2,7 @@ name: 'Oktokit Sandbox'
 description: 'Oktokit sandbox for developing javascript actions'
 
 inputs:
-  workflow-name:
+  workflow-name: sandbox
 
   gh-token:
     default: ${{ secrets.GITHUB_TOKEN }}
