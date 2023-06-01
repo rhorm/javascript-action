@@ -21,3 +21,5 @@ jobs:
 
       - name: Print workflow runs
         uses: ./.github/actions/oktokit-example
+        with:
+          gh-token: ${{ secrets.GITHUB_TOKEN }}

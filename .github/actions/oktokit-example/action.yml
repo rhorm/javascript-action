@@ -6,7 +6,8 @@ inputs:
     default: sandbox
 
   gh-token:
-    default: ${{ secrets.GITHUB_TOKEN }}
+    required: true
+
 
 outputs:
   conclusion:
