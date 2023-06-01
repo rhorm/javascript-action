@@ -2,9 +2,10 @@ name: sandbox
 on: [push]
 
 jobs:
-  oktokit-gh-api-call:
+  api-call:
     runs-on: ubuntu-latest
-    name: Use ocktokit to make a github api call
+    outputs:
+      conclusion: ${{ steps.workflow-check.outputs.conclusion }}
     steps:
       - name: Checkout
         uses: actions/checkout@v3
@@ -13,10 +14,25 @@ jobs:
         run: npm install
 
       - name: Get value via api call
-        id: api-call
+        id: workflow-check
         uses: ./.github/actions/oktokit-example
         with:
           gh-token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Print value from api call
-        run: echo "The value from api call is ${{ steps.api-call.outputs.conclusion }}"
+        run: echo "The value from api call is ${{ steps.workflow-check.outputs.conclusion }}"
+
+  print-output:
+    needs: api-call
+    if: ${{ needs.api-call.outputs.conclusion }} === 'success'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Print output
+        run: echo "The status is ${{ needs.api-call.outputs.conclusion }}"
+
+  some-other-job:
+    needs: print-output
+    runs-on: ubuntu-latest
+    steps:
+      some-step:
+        run: echo "Some step should not have executed"
