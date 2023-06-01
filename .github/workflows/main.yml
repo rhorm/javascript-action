@@ -5,7 +5,7 @@ jobs:
   api-call:
     runs-on: ubuntu-latest
     outputs:
-      conclusion: ${{ steps.workflow-check.outputs.conclusion }}
+      conclusion: steps.workflow-check.outputs.conclusion
     steps:
       - name: Checkout
         uses: actions/checkout@v3
