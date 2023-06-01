@@ -12,6 +12,7 @@ async function run() {
         repo: 'javascript-action'
     });
 
+    console.log(workflowRuns)
     const {conclusion} = workflowRuns.find(workflowRun => workflowRun.name.includes(workflowName))
 
     console.log(conclusion);
