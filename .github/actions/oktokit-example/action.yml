@@ -11,7 +11,6 @@ inputs:
 outputs:
   conclusion:
     description: 'Output last conclusion from workflow'
-    type: string
 
 runs:
   using: 'node16'
