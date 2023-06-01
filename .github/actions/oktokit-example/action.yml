@@ -1,0 +1,17 @@
+name: 'Oktokit Sandbox'
+description: 'Oktokit sandbox for developing javascript actions'
+
+inputs:
+  workflow-name:
+
+  gh-token:
+    default: ${{ secrets.GITHUB_TOKEN }}
+
+outputs:
+  conclusion:
+    description: 'Output last conclusion from workflow'
+    type: string
+
+runs:
+  using: 'node16'
+  main: 'index.js'
