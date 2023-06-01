@@ -34,5 +34,5 @@ jobs:
     needs: print-output
     runs-on: ubuntu-latest
     steps:
-      some-step:
+      - name: Some step
         run: echo "Some step should not have executed"
