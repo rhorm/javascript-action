@@ -24,7 +24,7 @@ jobs:
 
   print-output:
     needs: api-call
-    if: ${{ needs.api-call.outputs.conclusion }} == 'failure'
+    if: ${{ needs.api-call.outputs.conclusion }} == 'success'
     runs-on: ubuntu-latest
     steps:
       - name: Print output
