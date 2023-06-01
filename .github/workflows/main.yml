@@ -12,7 +12,11 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      - name: Print workflow runs
+      - name: Get value via api call
+        id: api-call
         uses: ./.github/actions/oktokit-example
         with:
           gh-token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Print value from api call
+        run: echo "The value from api call is ${{ steps.api-call.outputs.conclusion }}"
